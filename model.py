@@ -35,4 +35,27 @@ matrix1 = [
 
 print(rank_of_matrix(matrix1))
 
+#----------------------print------------------------------------
+import pandas as pd
+
+def find_highly_correlated_features(data, threshold=0.9):
+    # Step 1: Calculate the correlation matrix
+    corr_matrix = data.corr()
+    
+    # Step 2: Find pairs of features with high correlation
+    correlated_features = set()
+    for i in range(len(corr_matrix.columns)):
+        for j in range(i):
+            if abs(corr_matrix.iloc[i, j]) > threshold:
+                feature_pair = (corr_matrix.columns[i], corr_matrix.columns[j])
+                correlated_features.add(feature_pair)
+
+    return correlated_features
+
+# Example usage:
+import seaborn as sns
+data = sns.load_dataset('iris')  # Iris dataset
+correlated = find_highly_correlated_features(data)
+print("Highly correlated features:", correlated)
+
 
