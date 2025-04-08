@@ -59,3 +59,20 @@ correlated = find_highly_correlated_features(data)
 print("Highly correlated features:", correlated)
 
 
+#----------------------------------------
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
+# Load data
+data = sns.load_dataset('iris')
+
+# Apply PCA
+pca = PCA(n_components=2)
+pca_result = pca.fit_transform(data.drop('species', axis=1))  # Drop categorical column 'species'
+
+# Visualize the result
+plt.scatter(pca_result[:, 0], pca_result[:, 1], c=data['species'].astype('category').cat.codes)
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.title("PCA - Iris Dataset")
+plt.show()
