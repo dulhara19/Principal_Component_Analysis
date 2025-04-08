@@ -36,27 +36,65 @@ matrix1 = [
 print(rank_of_matrix(matrix1))
 
 #----------------------print------------------------------------
+import numpy as np
 import pandas as pd
-
-def find_highly_correlated_features(data, threshold=0.9):
-    # Step 1: Calculate the correlation matrix
-    corr_matrix = data.corr()
-    
-    # Step 2: Find pairs of features with high correlation
-    correlated_features = set()
-    for i in range(len(corr_matrix.columns)):
-        for j in range(i):
-            if abs(corr_matrix.iloc[i, j]) > threshold:
-                feature_pair = (corr_matrix.columns[i], corr_matrix.columns[j])
-                correlated_features.add(feature_pair)
-
-    return correlated_features
-
-# Example usage:
 import seaborn as sns
-data = sns.load_dataset('iris')  # Iris dataset
-correlated = find_highly_correlated_features(data)
-print("Highly correlated features:", correlated)
+
+# Load dataset
+data = sns.load_dataset('iris')
+
+print(data.head())
+# print(features.head())
+
+# Get unique values in the species column
+unique_species = data['species'].unique()
+num_unique_species = data['species'].nunique()
+
+print("Unique values in 'species':", unique_species)
+print("Number of unique species:", num_unique_species)
+
+from sklearn.preprocessing import LabelEncoder
+
+# Make a copy of the dataset
+encoded_data = data.copy()
+
+# Encode the species column
+le = LabelEncoder()
+encoded_data['species_encoded'] = le.fit_transform(data['species'])
+print("Encoded species column:")
+print(encoded_data.head(10))
+# Drop the original species column
+features = encoded_data.drop(columns=['species'])
+print(features.head())
+
+
+
+
+
+
+
+# Step 1: Calculate the correlation matrix
+corr_matrix = features.corr()
+
+# Step 2: Calculate the rank of the correlation matrix using numpy
+rank = np.linalg.matrix_rank(corr_matrix.values)
+print("Rank of the correlation matrix:", rank)
+
+# Set a threshold to identify strong correlations
+threshold = 0.9
+high_corr_pairs = []
+
+# Step 3: Find highly correlated feature pairs (excluding the diagonal)
+for i in range(len(corr_matrix.columns)):
+    for j in range(i + 1, len(corr_matrix.columns)):
+        corr_value = corr_matrix.iloc[i, j]
+        if abs(corr_value) > threshold:
+            high_corr_pairs.append((corr_matrix.columns[i], corr_matrix.columns[j], corr_value))
+
+# Step 4: Display the results
+print("\nHighly correlated feature pairs (|correlation| > {}):".format(threshold))
+for f1, f2, corr in high_corr_pairs:
+    print(f"{f1} ↔ {f2} → Correlation: {corr:.2f}")
 
 
 #----------------------------------------
