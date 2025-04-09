@@ -91,7 +91,6 @@ print("\nHighly correlated feature pairs (|correlation| > {}):".format(threshold
 for f1, f2, corr in high_corr_pairs:
     print(f"{f1} ↔ {f2} → Correlation: {corr:.2f}")
 
-
 #----------------------------------------
 
 from sklearn.decomposition import PCA
