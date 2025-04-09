@@ -68,11 +68,6 @@ features = encoded_data.drop(columns=['species'])
 print(features.head())
 
 
-
-
-
-
-
 # Step 1: Calculate the correlation matrix
 corr_matrix = features.corr()
 
@@ -98,6 +93,7 @@ for f1, f2, corr in high_corr_pairs:
 
 
 #----------------------------------------
+
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
@@ -113,4 +109,4 @@ plt.scatter(pca_result[:, 0], pca_result[:, 1], c=data['species'].astype('catego
 plt.xlabel("Principal Component 1")
 plt.ylabel("Principal Component 2")
 plt.title("PCA - Iris Dataset")
-plt.show()
+plt.show() 
