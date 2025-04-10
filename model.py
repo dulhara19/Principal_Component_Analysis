@@ -120,3 +120,4 @@ plt.grid(True)
 plt.show()
 
 print("Explained variance ratio:", pca.explained_variance_ratio_)
+print("Total variance explained by the first two components:", sum(pca.explained_variance_ratio_))
