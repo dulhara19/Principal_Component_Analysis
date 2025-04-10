@@ -93,6 +93,7 @@ for f1, f2, corr in high_corr_pairs:
 
 #----------------------------------------
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 # Step 1: Standardize the data (important for PCA)
 scaler = StandardScaler()
 scaled_features = scaler.fit_transform(features)
