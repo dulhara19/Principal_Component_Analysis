@@ -92,20 +92,24 @@ for f1, f2, corr in high_corr_pairs:
     print(f"{f1} ↔ {f2} → Correlation: {corr:.2f}")
 
 #----------------------------------------
+from sklearn.preprocessing import StandardScaler
+# Step 1: Standardize the data (important for PCA)
+scaler = StandardScaler()
+scaled_features = scaler.fit_transform(features)
 
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
+# Step 2: Apply PCA
+pca = PCA(n_components=2)  # Reduce to 2 dimensions
+pca_components = pca.fit_transform(scaled_features)
 
-# Load data
-data = sns.load_dataset('iris')
+# Step 3: Create a new DataFrame for plotting
+pca_df = pd.DataFrame(data=pca_components, columns=['PC1', 'PC2'])
+pca_df['species'] = data['species']
 
-# Apply PCA
-pca = PCA(n_components=2)
-pca_result = pca.fit_transform(data.drop('species', axis=1))  # Drop categorical column 'species'
-
-# Visualize the result
-plt.scatter(pca_result[:, 0], pca_result[:, 1], c=data['species'].astype('category').cat.codes)
-plt.xlabel("Principal Component 1")
-plt.ylabel("Principal Component 2")
-plt.title("PCA - Iris Dataset")
-plt.show() 
+# Step 4: Plot the results
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=pca_df, x='PC1', y='PC2', hue='species', palette='Set1', s=100)
+plt.title('PCA of Iris Dataset')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.grid(True)
+plt.show()
