@@ -97,7 +97,7 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
+ 
 # Step 1: Standardize the data (important for PCA)
 scaler = StandardScaler()
 scaled_features = scaler.fit_transform(features)
@@ -118,3 +118,5 @@ plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 plt.grid(True)
 plt.show()
+
+print("Explained variance ratio:", pca.explained_variance_ratio_)
