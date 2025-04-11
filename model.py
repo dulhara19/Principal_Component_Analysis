@@ -62,11 +62,10 @@ encoded_data = data.copy()
 le = LabelEncoder()
 encoded_data['species_encoded'] = le.fit_transform(data['species'])
 print("Encoded species column:")
-print(encoded_data.head(10))
+# print(encoded_data.head(10))
 # Drop the original species column
-features = encoded_data.drop(columns=['species'])
+features = encoded_data.drop(columns=['species_encoded','species'])
 print(features.head())
-
 
 # Step 1: Calculate the correlation matrix
 corr_matrix = features.corr()
@@ -103,11 +102,11 @@ scaler = StandardScaler()
 scaled_features = scaler.fit_transform(features)
 
 # Step 2: Apply PCA
-pca = PCA(n_components=2)  # Reduce to 2 dimensions
+pca = PCA(n_components=4)  # Reduce to 2 dimensions
 pca_components = pca.fit_transform(scaled_features)
 
 # Step 3: Create a new DataFrame for plotting
-pca_df = pd.DataFrame(data=pca_components, columns=['PC1', 'PC2'])
+pca_df = pd.DataFrame(data=pca_components, columns=['PC1', 'PC2','PC3','PC4'])
 pca_df['species'] = data['species']
 
 # Step 4: Plot the results
