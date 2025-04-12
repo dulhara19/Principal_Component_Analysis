@@ -111,7 +111,7 @@ pca_df['species'] = data['species']
 
 # Step 4: Plot the results
 plt.figure(figsize=(8, 6))
-sns.scatterplot(data=pca_df, x='PC1', y='PC3', hue='species', palette='Set1', s=100)
+sns.scatterplot(data=pca_df, x='PC1',y='PC3',hue='species', palette='Set1', s=100)
 plt.title('PCA of Iris Dataset')
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
