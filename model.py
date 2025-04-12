@@ -12,7 +12,7 @@ def rank_of_matrix(matrix):
                     break
         if matrix[r][r] == 0:
             continue
-
+ 
         # Step 2: Eliminate below the pivot
         for i in range(r+1, rows):
             ratio = matrix[i][r] / matrix[r][r]
