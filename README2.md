@@ -10,4 +10,4 @@ Score individual features based on how much info they give about the target.
 
 its Supervised (uses target info!)
 Captures both linear & nonlinear relationships
-MI score tells how useful each feature is You keep the original features
+MI score tells how useful each feature is You keep the original features. but when we use PCA it gives Transformed "components" (not original features)
