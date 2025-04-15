@@ -1,4 +1,5 @@
 import shap
+import shap_analysis
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -38,13 +39,20 @@ print(f"Model accuracy: {accuracy * 100:.2f}%")
 
 
 # Initialize SHAP Explainer
-explainer = shap.Explainer(model, X_train)
+# explainer = shap.Explainer(model, X_train )
+
+# Initialize SHAP Explainer with additivity check disabled
+explainer = shap.Explainer(model, X_train, check_additivity=False)
+
 
 # Get SHAP values for the test set
 shap_values = explainer(X_test)
 
 # SHAP waterfall plot for the first sample in the test set
-shap.plots.waterfall(shap_values[0])
+shap_analysis.plots.waterfall(shap_values[0])
 
 # SHAP summary plot for all the test set samples
-shap.plots.beeswarm(shap_values)
+shap_analysis.plots.beeswarm(shap_values)
+
+# SHAP feature importance bar plot
+shap_analysis.summary_plot(shap_values, X_test)
