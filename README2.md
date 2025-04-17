@@ -60,3 +60,9 @@ Where:
     Build U, Σ, V
 
     Show result    
+
+U: Left singular vectors
+
+ΣΣ: Diagonal matrix of singular values
+
+VTVT: Right singular vectors (transposed)    
