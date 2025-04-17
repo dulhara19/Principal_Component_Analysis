@@ -39,3 +39,24 @@ Where:
     ΣΣ is an m×nm×n diagonal matrix with singular values (non-negative real numbers, sorted in descending order)
 
     VTVT is the transpose of an n×nn×n orthogonal matrix (basis for the output space)
+
+
+ Step-by-Step Plan
+
+    Matrix input
+
+    Transpose
+
+    Matrix multiplication
+
+    Characteristic polynomial
+
+    Solve eigenvalues using determinant
+
+    Find eigenvectors
+
+    Normalize vectors
+
+    Build U, Σ, V
+
+    Show result    
