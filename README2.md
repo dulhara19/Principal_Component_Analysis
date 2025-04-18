@@ -36,7 +36,7 @@ Where:
 
     UU is an m×mm×m orthogonal matrix (columns are unit vectors, like basis for input space)
 
-    ΣΣ is an m×nm×n diagonal matrix with singular values (non-negative real numbers, sorted in descending order)
+    Σ is an m×nm×n diagonal matrix with singular values (non-negative real numbers, sorted in descending order)
 
     VT is the transpose of an n×nn×n orthogonal matrix (basis for the output space)
 
