@@ -38,7 +38,7 @@ Where:
 
     ΣΣ is an m×nm×n diagonal matrix with singular values (non-negative real numbers, sorted in descending order)
 
-    VTVT is the transpose of an n×nn×n orthogonal matrix (basis for the output space)
+    VT is the transpose of an n×nn×n orthogonal matrix (basis for the output space)
 
 
  Step-by-Step Plan
