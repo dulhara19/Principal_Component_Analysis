@@ -34,7 +34,7 @@ Where:
 
     AA is an m×nm×n matrix
 
-    UU is an m×mm×m orthogonal matrix (columns are unit vectors, like basis for input space)
+    U is an m×mm×m orthogonal matrix (columns are unit vectors, like basis for input space)
 
     Σ is an m×nm×n diagonal matrix with singular values (non-negative real numbers, sorted in descending order)
 
