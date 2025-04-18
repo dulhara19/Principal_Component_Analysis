@@ -32,7 +32,7 @@ Then SVD says:
 
 Where:
 
-    AA is an m×nm×n matrix
+    A is an m×nm×n matrix
 
     U is an m×mm×m orthogonal matrix (columns are unit vectors, like basis for input space)
 
