@@ -1,4 +1,4 @@
-What is Mutual Information?
+## What is Mutual Information?
 
     Mutual Information (MI) measures how much information one variable tells us about another.
 
