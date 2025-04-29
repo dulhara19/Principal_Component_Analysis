@@ -1,3 +1,6 @@
+#----------------------finding rank of given matrix------------------------------------
+
+
 def rank_of_matrix(matrix):
     rows = len(matrix)
     cols = len(matrix[0])
