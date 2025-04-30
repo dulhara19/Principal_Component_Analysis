@@ -9,6 +9,7 @@
 # # Reconstruct A
 # Sigma = np.diag(S)
 # A_reconstructed = U @ Sigma @ Vt
+
 # print("Original A:\n", A)
 # print("Reconstructed A:\n", A_reconstructed)
 
