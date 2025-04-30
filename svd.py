@@ -9,12 +9,10 @@
 # # Reconstruct A
 # Sigma = np.diag(S)
 # A_reconstructed = U @ Sigma @ Vt
-
 # print("Original A:\n", A)
 # print("Reconstructed A:\n", A_reconstructed)
 
 import math
-
 # 1. Matrix input
 def get_matrix():
     print("Enter your matrix row by row, separated by commas:")
