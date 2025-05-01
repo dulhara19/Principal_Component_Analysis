@@ -1,5 +1,4 @@
-#----------------------finding rank of given matrix------------------------------------
-
+#----------------------finding rank of given matrix-start-----------------------------------
 
 def rank_of_matrix(matrix):
     rows = len(matrix)
