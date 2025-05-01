@@ -37,7 +37,7 @@ matrix1 = [
 
 print(rank_of_matrix(matrix1))
 
-#----------------------Principal component analysis using rank ------------------------------------
+#----------------------Principal component analysis using rank -end-----------------------------------
 import numpy as np
 import pandas as pd
 import seaborn as sns
